@@ -1,0 +1,184 @@
+:root {
+    --bg-soft: #fbf9f4;
+    --sage: #81b29a;
+    --coral: #f2cc8f;
+    --navy: #3d405b;
+    --text-dark: #2d3436;
+    --paper: #ffffff;
+    --font-heading: 'Playfair Display', serif;
+    --font-book: 'Lora', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-soft);
+    color: var(--text-dark);
+    font-family: 'Varela Round', sans-serif;
+    overflow-x: hidden;
+}
+
+.hidden { display: none !important; }
+
+/* --- Background Decor --- */
+.blob {
+    position: fixed; border-radius: 50%; z-index: -1;
+    filter: blur(60px); opacity: 0.4; animation: move 15s infinite alternate;
+}
+.blob-1 { width: 400px; height: 400px; background: var(--sage); top: -100px; right: -50px; }
+.blob-2 { width: 500px; height: 500px; background: var(--coral); bottom: -150px; left: -100px; animation-delay: 2s; }
+@keyframes move { from { transform: translate(0,0); } to { transform: translate(50px, 80px); } }
+
+/* --- Welcome Gate --- */
+.gate-overlay {
+    position: fixed; inset: 0; background: linear-gradient(135deg, #a8dadc, #f2cc8f);
+    display: flex; justify-content: center; align-items: center; z-index: 2000;
+}
+.gate-content {
+    background: rgba(255, 255, 255, 0.95); padding: 50px; border-radius: 30px;
+    text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.1); width: 90%; max-width: 450px;
+}
+#userNameInput {
+    width: 100%; padding: 15px; margin: 25px 0; border: 2px solid #eee;
+    border-radius: 15px; font-size: 1rem; outline: none; transition: 0.3s;
+}
+#userNameInput:focus { border-color: var(--sage); }
+.btn-enter {
+    background: var(--sage); color: white; border: none; padding: 15px;
+    border-radius: 15px; cursor: pointer; width: 100%; font-weight: bold; font-size: 1.1rem;
+}
+
+/* --- Animations --- */
+.fade-in { animation: fadeIn 1s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.fade-in-up { animation: fadeInUp 0.8s ease; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.slide-in-bottom { animation: slideIn 0.6s ease-out; }
+@keyframes slideIn { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.bounce { animation: bounce 2s infinite; }
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.pulse { animation: pulse 2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(129, 178, 154, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(129, 178, 154, 0); } 100% { box-shadow: 0 0 0 0 rgba(129, 178, 154, 0); } }
+
+/* --- Main Layout --- */
+.container { max-width: 1100px; margin: auto; padding: 0 20px; transition: 0.5s; }
+.container.blur-bg { filter: blur(10px);}
+nav { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; }
+.logo { font-family: var(--font-heading); font-size: 1.8rem; color: var(--navy); }
+.hero { text-align: center; padding: 50px 0; }
+.hero h2 { font-family: var(--font-heading); font-size: 3rem; margin-bottom: 10px; color: var(--navy); }
+
+/* --- Book Grid --- */
+.book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; padding-bottom: 80px; }
+.book-card {
+    background: white; padding: 35px; border-radius: 25px; cursor: pointer;
+    transition: 0.4s; border: 1px solid rgba(0,0,0,0.03); position: relative;
+}
+.book-card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); border-color: var(--coral); }
+.book-card h3 { font-family: var(--font-heading); margin: 15px 0; font-size: 1.5rem; color: var(--navy); }
+.card-tag { color: var(--sage); font-weight: bold; font-size: 0.8rem; letter-spacing: 1px; }
+
+/* --- Reading Mode --- */
+.reading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(253, 250, 245, 0.95); /* Sedikit transparan */
+    backdrop-filter: blur(10px); /* Ini yang membuat efek blur di belakang */
+    z-index: 1500; /* Harus angka besar */
+    overflow-y: auto;
+}
+
+.reading-container { max-width: 750px; margin: auto; }
+.progress-container { width: 100%; height: 5px; background: #eee; margin-top: 15px; border-radius: 10px; }
+.progress-bar { height: 100%; background: var(--sage); width: 0%; border-radius: 10px; transition: 0.2s; }
+.btn-back { background: var(--navy); color: white; border: none; padding: 12px 25px; border-radius: 30px; cursor: pointer; transition: 0.3s; font-weight: bold; }
+.btn-back:hover { background: var(--sage); }
+
+.paper {
+    background: var(--paper); padding: 60px 70px; border-radius: 20px; margin-top: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.book-header { text-align: center; margin-bottom: 40px; }
+.paper h1 { font-family: var(--font-heading); font-size: 2.8rem; margin-bottom: 10px; color: var(--navy); }
+.author-meta { color: var(--sage); text-transform: uppercase; letter-spacing: 2px; font-weight: bold; font-size: 0.9rem; }
+.divider { font-size: 2.5rem; color: var(--coral); margin: 20px 0; }
+.reading-text { font-family: var(--font-book); font-size: 1.3rem; line-height: 2; color: #333; text-align: justify; white-space: pre-line; }
+.book-footer { margin-top: 50px; text-align: center; color: #bbb; border-top: 1px solid #f0f0f0; padding-top: 20px; font-style: italic; }
+
+@media (max-width: 600px) {
+    .paper { padding: 40px 25px; }
+    .paper h1 { font-size: 2rem; }
+}
+/* ... tambahkan ini di bagian paling bawah file style.css ... */
+
+/* Gaya Section Masukan */
+.feedback-section {
+    margin-top: 40px;
+    padding: 30px;
+    background: #f9fbfb;
+    border-radius: 15px;
+    border: 1px dashed var(--sage);
+}
+
+.feedback-section h4 {
+    font-family: var(--font-heading);
+    margin-bottom: 15px;
+    color: var(--navy);
+}
+
+#userFeedback {
+    width: 100%;
+    height: 80px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-family: var(--font-book);
+    resize: none;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+#userFeedback:focus {
+    border-color: var(--sage);
+}
+
+.btn-send {
+    background: var(--sage);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-send:hover {
+    background: var(--navy);
+}
+
+/* Gaya Footer Versi */
+.app-footer {
+    text-align: center;
+    padding: 60px 0 40px 0;
+    margin-top: 50px;
+    color: #a0a0a0;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.footer-line {
+    width: 50px;
+    height: 2px;
+    background: var(--coral);
+    margin: 0 auto 20px auto;
+    border-radius: 2px;
+}
+
+.app-footer p {
+    margin: 5px 0;
+}
+
+.app-footer strong {
+    color: var(--navy);
+}

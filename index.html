@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindLibrary | Premium Reading Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700;900&family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div id="welcomeGate" class="gate-overlay">
+        <div class="gate-content fade-in-up">
+            <span class="gate-icon bounce">🌿</span>
+            <h1>MindLibrary</h1>
+            <p>Selamat datang, Sahabat. Masukkan nama panggilanmu untuk memulai perjalanan tenang hari ini.</p>
+            <input type="text" id="userNameInput" placeholder="Nama panggilanku..." autocomplete="off">
+            <button onclick="masukPerpustakaan()" class="btn-enter pulse">Buka Perpustakaan</button>
+        </div>
+    </div>
+
+    <div id="mainContent" class="container hidden">
+        <header class="fade-in">
+            <nav>
+                <div class="logo">MindLibrary.</div>
+                <div class="user-greet">Halo, <span id="userDisplayName"></span>! 👋</div>
+            </nav>
+            <div class="hero">
+                <h2>Ruang Teduh Pikiran</h2>
+                <p>Temukan inspirasi dan ketenangan dalam setiap baris kalimat.</p>
+            </div>
+        </header>
+
+        <section id="bookShelf" class="book-grid"></section>
+
+        <footer class="app-footer">
+            <div class="footer-line"></div>
+            <p>Dibuat dengan ❤️ untuk Ketenangan Pikiran</p>
+            <p>Dibuat oleh Firman</p>
+            <p><strong>MindLibrary</strong> &copy; 2026 | Versi 1.2.0 Stable</p>
+            <small>Purwakarta, Indonesia</small>
+        </footer>
+    </div>
+
+    <section id="readingRoom" class="reading-overlay hidden">
+        <div class="reading-container">
+            <div class="reading-nav">
+                <button class="btn-back" onclick="tutupBuku()">← Kembali ke Rak</button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="myBar"></div>
+                </div>
+            </div>
+            
+            <article class="paper slide-in-bottom">
+                <div class="book-header">
+                    <h1 id="readTitle"></h1>
+                    <p class="author-meta" id="readAuthor"></p>
+                    <div class="divider">❦</div>
+                </div>
+                
+                <div id="readBody" class="reading-text"></div>
+                
+                <div class="feedback-section">
+                    <h4>Bagaimana perasaanmu setelah membaca ini?</h4>
+                    <textarea id="userFeedback" placeholder="Tuliskan pesan atau kesanmu di sini..."></textarea>
+                    <button onclick="kirimMasukan()" class="btn-send">Kirim Kesan</button>
+                </div>
+
+                <div class="book-footer">
+                    <p>Tarik napas dalam, kamu sudah melakukan yang terbaik hari ini.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
