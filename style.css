@@ -30,125 +30,24 @@ body {
 @keyframes move { from { transform: translate(0,0); } to { transform: translate(50px, 80px); } }
 
 /* --- Welcome Gate --- */
-/* Container Utama Gate */
 .gate-overlay {
-    background: radial-gradient(circle at center, #fdfbfb 0%, #ebedee 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    z-index: 1000;
+    position: fixed; inset: 0; background: linear-gradient(135deg, #a8dadc, #f2cc8f);
+    display: flex; justify-content: center; align-items: center; z-index: 2000;
 }
-
-/* Kotak Konten */
 .gate-content {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(12px); /* Efek Kaca */
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    padding: 3rem;
-    border-radius: 40px;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-    max-width: 400px;
-    width: 90%;
+    background: rgba(255, 255, 255, 0.95); padding: 50px; border-radius: 30px;
+    text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.1); width: 90%; max-width: 450px;
 }
-
-.brand-badge {
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #889e81;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.gate-content h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-}
-
-.sub-quote {
-    font-style: italic;
-    font-size: 0.9rem;
-    color: #7f8c8d;
-    margin-bottom: 2.5rem;
-}
-
-/* Input Minimalis */
-.input-wrapper {
-    position: relative;
-    margin-bottom: 2rem;
-}
-
 #userNameInput {
-    border: none;
-    background: transparent;
-    border-bottom: 2px solid #ddd;
-    padding: 10px 0;
-    width: 100%;
-    font-size: 1.1rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    outline: none;
+    width: 100%; padding: 15px; margin: 25px 0; border: 2px solid #eee;
+    border-radius: 15px; font-size: 1rem; outline: none; transition: 0.3s;
+}
+#userNameInput:focus { border-color: var(--sage); }
+.btn-enter {
+    background: var(--sage); color: white; border: none; padding: 15px;
+    border-radius: 15px; cursor: pointer; width: 100%; font-weight: bold; font-size: 1.1rem;
 }
 
-#userNameInput:focus {
-    border-bottom-color: #889e81;
-}
-
-/* Tombol Premium */
-.btn-enter-new {
-    background: #2c3e50;
-    color: white;
-    border: none;
-    padding: 15px 35px;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0 auto;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-enter-new:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    background: #34495e;
-}
-
-/* Animasi Background (Blobs) */
-.blob {
-    position: absolute;
-    filter: blur(80px);
-    z-index: -1;
-    opacity: 0.5;
-}
-
-.blob-1 {
-    width: 300px;
-    height: 300px;
-    background: #d4fc79;
-    top: 10%;
-    left: 10%;
-    border-radius: 50%;
-}
-
-.blob-2 {
-    width: 400px;
-    height: 400px;
-    background: #96e6a1;
-    bottom: 10%;
-    right: 10%;
-    border-radius: 50%;
-}
 /* --- Animations --- */
 .fade-in { animation: fadeIn 1s ease; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
