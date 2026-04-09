@@ -12,15 +12,24 @@
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
 
-    <div id="welcomeGate" class="gate-overlay">
-        <div class="gate-content fade-in-up">
-            <span class="gate-icon bounce">🌿</span>
-            <h1>MindLibrary</h1>
-            <p>Selamat datang, Masukkan nama panggilanmu untuk memulai perjalanan tenang hari ini.</p>
-            <input type="text" id="userNameInput" placeholder="Nama panggilanku..." autocomplete="off">
-            <button onclick="masukPerpustakaan()" class="btn-enter pulse"> klik Untuk meneruskan..</button>
+  <div id="welcomeGate" class="gate-overlay">
+    <div class="gate-content fade-in-up">
+        <div class="gate-decoration">✨</div>
+        <div class="brand-badge">Edisi 2026</div>
+        <h1>MindLibrary</h1>
+        <div class="sub-quote">"Suara yang paling tenang adalah suara di dalam pikiranmu sendiri."</div>
+        
+        <div class="input-wrapper">
+            <input type="text" id="userNameInput" placeholder="Siapa namamu?" autocomplete="off">
+            <div class="input-focus-line"></div>
         </div>
+
+        <button onclick="masukPerpustakaan()" class="btn-enter-new">
+            Mulai Menjelajah
+            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+        </button>
     </div>
+</div>
 
     <div id="mainContent" class="container hidden">
         <header class="fade-in">
