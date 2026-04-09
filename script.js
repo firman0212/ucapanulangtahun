@@ -106,30 +106,17 @@ const books = [
 
 const readingOverlay = document.getElementById('readingRoom');
 
+// 1. Fungsi Masuk (Tombol Buka Perpustakaan)
 function masukPerpustakaan() {
-    const nameInput = document.getElementById('userNameInput').value;
-    
-    if (nameInput.trim() !== "") {
-        // 1. Simpan nama ke localStorage
-        localStorage.setItem('mindLibrary_userName', nameInput);
-        
-        // 2. Jalankan fungsi untuk menampilkan konten utama
-        renderUserInterface(nameInput);
-    } else {
-        alert("Silakan masukkan nama panggilanmu terlebih dahulu.");
-    }
-}
+    const welcomeScreen = document.getElementById('welcomeScreen'); // Ganti ID sesuai div depanmu
+    const readingRoom = document.getElementById('readingRoom');
 
-    if (name.trim() === "") {
-        alert("Boleh tahu nama panggilannya dulu, Kak? 😊");
-        return;
-    }
-
-    document.getElementById('userDisplayName').innerText = name;
-    document.getElementById('welcomeGate').classList.add('hidden');
-    document.getElementById('mainContent').classList.remove('hidden');
-
-    renderBooks();
+  
+    setTimeout(() => {
+        welcomeScreen.classList.add('hidden');
+        // 3. Jalankan fungsi musik atau lainnya jika ada
+        if (typeof playMusic === "function") playMusic();
+    }, 600); // Waktu harus sama dengan transisi di CSS (0.6s)
 }
 
 // 2. Render Daftar Kartu Buku
@@ -222,13 +209,5 @@ async function kirimMasukan() {
     } finally {
         btn.innerText = "Kirim Kesan";
         btn.disabled = false;
-    }
-}
-function cekSesiPengguna() {
-    const savedName = localStorage.getItem('mindLibrary_userName');
-    
-    if (savedName) {
-        // Jika nama ditemukan, langsung tampilkan konten utama tanpa tanya nama lagi
-        renderUserInterface(savedName);
     }
 }
