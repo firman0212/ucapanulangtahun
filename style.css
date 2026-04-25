@@ -20,7 +20,8 @@ body {
 
 .gold-gradient-text {
     background: var(--gold-gradient);
-    -webkit-background-clip: text;
+    background-clip: text;
+-webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
 }
