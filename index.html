@@ -3,82 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Royal Celebration</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@1,400&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+    <title>Happy Birthday Bro</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="particles" id="particles"></div>
 
+    <!-- LOGIN -->
     <div id="gatekeeper" class="overlay">
+
         <div class="login-box">
-            <h2 class="cinzel-deco gold-gradient-text">Eksklusif</h2>
+
+            <h2 class="title">
+                Untuk Teman Terbaik 🎂
+            </h2>
+
             <div class="input-group">
-                <input type="text" id="userName" placeholder="Siapa kamu?..." autocomplete="off">
-                <button onclick="unlockExperience()" class="btn-round-premium">
-                    <span class="arrow">→</span>
+
+                <input
+                    type="text"
+                    id="userName"
+                    placeholder="Masukkan nama..."
+                    autocomplete="off">
+
+                <button onclick="unlockExperience()" class="btn-round">
+                    →
                 </button>
+
             </div>
+
             <p class="login-footer">
-    Ada ucapan spesial buat lo 👊
-</p>
+                Ada ucapan spesial buat lo 👊
+            </p>
+
         </div>
+
     </div>
 
+    <!-- MAIN -->
     <div id="mainContent" class="hidden content-wrapper">
+
         <div class="hero-center">
-            <h3 class="fade-in">Selamat Ulang Tahun,</h3>
-            <h1 id="displayName" class="cinzel-deco gold-gradient-text fade-in delay-1">Nama</h1>
-             <img src="foto.jpg" alt="Foto Spesial" class="profile-photo fade-in">
-            
-           <div class="heartfelt-message fade-in delay-2">
 
-    <p>
-        Selamat ulang tahun bro 🎉
-    </p>
+            <h3 class="fade-in">
+                Selamat Ulang Tahun,
+            </h3>
 
-    <p>
-        Semoga di umur yang baru ini,
-        semua hal baik pelan-pelan datang ke hidup lo.
-        Rezeki lancar, kesehatan dijaga,
-        dan segala yang lagi diperjuangin bisa tercapai.
-    </p>
+            <h1 id="displayName" class="main-name fade-in delay-1">
+                Nama
+            </h1>
 
-    <p>
-        Tetap jadi pribadi yang kuat,
-        rendah hati,
-        dan selalu bisa jadi versi terbaik dari diri sendiri.
-    </p>
+            <!-- FOTO -->
+            <img
+                src="foto.jpg"
+                alt="Foto Teman"
+                class="profile-photo fade-in">
 
-    <p>
-        Terima kasih udah jadi teman yang asik,
-        yang selalu ada di waktu tertentu,
-        dan tetap bertahan sejauh ini.
-    </p>
+            <!-- PESAN -->
+            <div class="heartfelt-message fade-in delay-2">
 
-    <p class="highlight">
-        “Kadang hidup emang berat,
-        tapi orang hebat bukan yang hidupnya mudah —
-        melainkan yang tetap jalan walau capek.”
-    </p>
+                <p>
+                    Selamat ulang tahun bro 🎉
+                </p>
 
-</div>
+                <p>
+                    Semoga di umur yang baru ini,
+                    semua hal baik pelan-pelan datang ke hidup lo.
+                    Rezeki lancar, kesehatan dijaga,
+                    dan segala yang lagi diperjuangin bisa tercapai.
+                </p>
 
-   <footer class="app-footer fade-in delay-3">
-            <p class="creator">Created by <span>©Firmansyah Maulana</span></p>
-            <p class="version">Version 2.0</p>
+                <p>
+                    Tetap jadi pribadi yang kuat,
+                    rendah hati,
+                    dan selalu bisa jadi versi terbaik dari diri sendiri.
+                </p>
+
+                <p>
+                    Terima kasih udah jadi teman yang asik,
+                    yang selalu ada di waktu tertentu,
+                    dan tetap bertahan sejauh ini.
+                </p>
+
+                <p class="highlight">
+                    “Kadang hidup emang berat,
+                    tapi orang hebat bukan yang hidupnya mudah —
+                    melainkan yang tetap jalan walau capek.”
+                </p>
+
+            </div>
+
+            <!-- KIRIM PESAN -->
+            <div class="message-card">
+
+                <textarea
+                    id="replyMessage"
+                    placeholder="Tulis pesan buat gue...">
+                </textarea>
+
+                <button onclick="sendToWhatsApp()" class="btn-wa">
+                    Kirim ke WhatsApp
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+
+            <p class="creator">
+                Created by
+                <span>©Firmansyah Maulana</span>
+            </p>
+
+            <p class="version">
+                Version 2.0
+            </p>
+
         </footer>
+
     </div>
 
+    <!-- MODAL -->
     <div id="customAlert" class="modal-overlay hidden">
+
         <div class="modal-box">
-            <h3 class="gold-gradient-text cinzel-deco" id="modalTitle">Perhatian</h3>
-            <p id="alertMessage">Pesan tidak boleh kosong.</p>
-            <button onclick="closeAlert()" class="btn-modal-ok">OKE</button>
+
+            <h3 id="modalTitle">
+                Perhatian
+            </h3>
+
+            <p id="alertMessage">
+                Pesan tidak boleh kosong.
+            </p>
+
+            <button onclick="closeAlert()" class="btn-modal-ok">
+                OKE
+            </button>
+
         </div>
+
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
