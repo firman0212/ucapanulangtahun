@@ -1,206 +1,222 @@
-:root {
-    --dark: #0a0a0a;
-    --gold-solid: #d4af37;
-    --gold-gradient: linear-gradient(135deg, #f9d976 0%, #b08d57 100%);
-    --white: #ffffff; /* Putih bersih untuk tombol & modal */
-    --white-soft: #f4f4f4; /* Putih lembut untuk teks */
+body{
+    margin:0;
+    padding:0;
+    background:#0f0f0f;
+    color:white;
+    font-family:'Poppins', sans-serif;
+    overflow-x:hidden;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    background-color: var(--dark);
-    color: var(--white-soft);
-    font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
+.hidden{
+    display:none;
 }
 
-/* --- TYPOGRAPHY & GRADIENT --- */
-.cinzel-deco { font-family: 'Cinzel Decorative', cursive; }
-
-.gold-gradient-text {
-    background: var(--gold-gradient);
-    background-clip: text;
--webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+.hero-center{
+    text-align:center;
+    padding:40px 20px;
 }
 
-/* --- LAYOUT UTAMA --- */
-.content-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
-    padding: 40px 20px;
-    z-index: 10;
-    position: relative;
-    text-align: center;
+.profile-photo{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid gold;
+    box-shadow:
+        0 0 20px rgba(255,215,0,0.5),
+        0 0 50px rgba(255,215,0,0.2);
+
+    margin:25px auto;
+    display:block;
+
+    transition:0.5s;
 }
 
-.hero-center {
-    max-width: 800px;
-    width: 100%;
+.profile-photo:hover{
+    transform:scale(1.05);
 }
 
-/* --- OVERLAY LOGIN --- */
-.overlay { 
-    position: fixed; inset: 0; 
-    background: var(--dark); 
-    display: flex; justify-content: center; align-items: center; 
-    z-index: 100; transition: 1s; 
+.title,
+.main-name{
+    font-family:'Cinzel', serif;
+    color:gold;
 }
 
-.login-box { 
-    text-align: center; padding: 60px 40px; 
-    background: rgba(255,255,255,0.02); 
-    backdrop-filter: blur(20px); 
-    border-radius: 30px; 
-    border: 1px solid rgba(212,175,55,0.15); 
+.main-name{
+    font-size:42px;
 }
 
-input#userName { 
-    width: 280px; background: transparent; border: none; 
-    border-bottom: 1px solid rgba(212, 175, 55, 0.4); 
-    color: white; font-size: 1.1rem; padding: 10px; 
-    text-align: center; outline: none; margin-bottom: 25px;
+.heartfelt-message{
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+    color:#f5f5f5;
 }
 
-/* --- TOMBOL BULAT PREMIUM --- */
-.btn-round-premium {
-    width: 70px; height: 70px; border-radius: 50%;
-    background: var(--white); border: 3px solid var(--gold-solid);
-    color: var(--dark); cursor: pointer; display: flex;
-    align-items: center; justify-content: center; font-size: 1.8rem;
-    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    margin: 0 auto;
+.highlight{
+    margin-top:20px;
+    color:gold;
+    font-style:italic;
 }
 
-.btn-round-premium:hover { 
-    transform: scale(1.1) rotate(360deg); 
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.5); 
+.message-card{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
-/* --- PESAN HATI --- */
-.heartfelt-message { margin: 30px auto; }
-.heartfelt-message p {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem; line-height: 1.8;
-    font-style: italic; color: rgba(255, 255, 255, 0.8);
-}
-.highlight {
-    margin-top: 15px; color: var(--gold-solid);
-    font-size: 1rem; letter-spacing: 1px; font-weight: 500;
+textarea{
+    width:100%;
+    max-width:450px;
+    height:120px;
+
+    border:none;
+    border-radius:15px;
+
+    padding:15px;
+
+    font-size:16px;
+
+    outline:none;
+
+    background:#1c1c1c;
+    color:white;
+
+    resize:none;
 }
 
-/* --- FORM BALASAN --- */
-/* Update pada Bagian Formulir Balasan */
-.message-card.no-border {
-    display: flex; /* Mengaktifkan tata letak fleksibel */
-    flex-direction: row; /* Menjajajarkan elemen secara horizontal (sejajar) */
-    justify-content: center; /* Memposisikan elemen di tengah secara horizontal */
-    align-items: center; /* Memposisikan elemen di tengah secara vertikal */
-    gap: 20px; /* Jarak antara kotak balasan dan tombol (sekitar 20px) */
-    width: 100%;
-    max-width: 600px; /* Lebar kontainer formulir */
-    margin: 30px auto 0; /* Jarak atas dan bawah */
-    padding: 20px; /* Padding di sekitar formulir */
-    background: transparent;
-    border: none;
+textarea:focus{
+    box-shadow:
+        0 0 10px rgba(255,215,0,0.3);
 }
 
-/* Update pada Kotak Balasan (Textarea) */
-textarea {
-    width: 100%;
-    max-width: 350px; /* Lebar kotak balasan */
-    height: 70px; /* Tinggi kotak balasan */
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    color: white;
-    border-radius: 8px;
-    outline: none;
-    transition: 0.3s;
-    font-size: 0.9rem;
-    resize: none; /* Mencegah kotak balasan ditarik/diubah ukurannya */
+.btn-wa{
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:gold;
+
+    color:black;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
 }
 
-/* Update pada Tombol WA Premium */
-.btn-wa-premium {
-    margin-top: 0; /* Menghilangkan margin atas agar sejajar */
-    width: 100%;
-    max-width: 200px; /* Lebar tombol */
-    padding: 10px 20px; /* Padding di dalam tombol */
-    background: var(--white);
-    border: 2px solid var(--gold-solid);
-    color: var(--dark);
-    font-weight: 700;
-    font-size: 0.85rem;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.4s;
-    letter-spacing: 1px;
-}
-/* Penyesuaian Ruang Agar Tidak Tertimpa Footer */
-.content-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
-    padding: 40px 20px 100px 20px; /* Padding bawah disesuaikan */
-    z-index: 10;
-    position: relative;
-    text-align: center;
+.btn-wa:hover{
+    transform:scale(1.05);
 }
 
-.message-card.no-border { 
-    margin-top: 25px; /* Jarak atas kotak dikurangi */
-    background: transparent; 
-    border: none; 
-}
-/* --- MODAL KUSTOM --- */
-.modal-overlay { 
-    position: fixed; inset: 0; background: rgba(0,0,0,0.85); 
-    backdrop-filter: blur(10px); display: flex; 
-    justify-content: center; align-items: center; 
-    z-index: 9999; opacity: 0; transition: 0.3s; 
-}
-.modal-box { 
-    background: #111; border: 1px solid var(--gold-solid); 
-    padding: 40px; border-radius: 20px; text-align: center; 
-    width: 85%; max-width: 350px; 
-}
-.btn-modal-ok { 
-    background: var(--gold-solid); border: none; color: #000; 
-    padding: 10px 40px; font-weight: bold; border-radius: 50px; cursor: pointer; 
+.btn-round{
+    border:none;
+
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    background:gold;
+
+    font-size:22px;
+
+    cursor:pointer;
 }
 
-/* --- FOOTER & ANIMASI --- */
-.app-footer { position: absolute; bottom: 30px; text-align: center; width: 100%; }
-.creator { font-size: 0.75rem; letter-spacing: 1px; color: rgba(255,255,255,0.4); }
-.creator span { color: var(--gold-solid); }
-.version { font-size: 0.6rem; color: rgba(255,255,255,0.2); margin-top: 5px; }
-
-.particles { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
-.particle { position: absolute; background: #f9d976; border-radius: 50%; opacity: 0.4; animation: float 10s infinite linear; }
-
-@keyframes float { 
-    0% { transform: translateY(110vh); opacity: 0; } 
-    50% { opacity: 0.5; }
-    100% { transform: translateY(-10vh); opacity: 0; } 
+.input-group{
+    display:flex;
+    justify-content:center;
+    gap:10px;
 }
 
-.hidden { display: none; }
-.fade-in { opacity: 0; animation: fadeIn 2s forwards; }
-.delay-1 { animation-delay: 0.5s; }
-.delay-2 { animation-delay: 1.2s; }
-.delay-3 { animation-delay: 2s; }
+input{
+    padding:14px;
 
-@keyframes fadeIn { 
-    from { opacity: 0; transform: translateY(20px); } 
-    to { opacity: 1; transform: translateY(0); } 
+    border-radius:30px;
+
+    border:none;
+
+    width:250px;
+
+    outline:none;
+}
+
+.app-footer{
+    text-align:center;
+    margin-top:50px;
+    color:#aaa;
+}
+
+.particles{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.particle{
+    position:absolute;
+    bottom:-10px;
+
+    background:gold;
+
+    border-radius:50%;
+
+    opacity:0.5;
+
+    animation:float linear infinite;
+}
+
+@keyframes float{
+
+    from{
+        transform:translateY(0);
+        opacity:0;
+    }
+
+    50%{
+        opacity:0.6;
+    }
+
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+@media(max-width:768px){
+
+    .main-name{
+        font-size:32px;
+    }
+
+    .profile-photo{
+        width:140px;
+        height:140px;
+    }
+
+    textarea{
+        max-width:100%;
+    }
+
+    .btn-wa{
+        width:100%;
+        max-width:450px;
+    }
+
+    input{
+        width:100%;
+    }
+
+    .input-group{
+        flex-direction:column;
+        align-items:center;
+    }
 }
