@@ -3,50 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday ✨</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>A Royal Celebration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@1,400&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="particles" id="particles"></div>
 
-    <!-- LOGIN -->
     <div id="gatekeeper" class="overlay">
         <div class="login-box">
-            <h2 class="title">Special For You</h2>
-
+            <h2 class="cinzel-deco gold-gradient-text">Eksklusif</h2>
             <div class="input-group">
-                <input type="text" id="userName" placeholder="Masukkan namamu..." autocomplete="off">
-
-                <button onclick="unlockExperience()" class="btn-round">
-                    →
+                <input type="text" id="userName" placeholder="Siapa kamu?..." autocomplete="off">
+                <button onclick="unlockExperience()" class="btn-round-premium">
+                    <span class="arrow">→</span>
                 </button>
             </div>
-
-            <p class="login-footer">
-                Ada sesuatu yang indah menunggumu ✨
-            </p>
+            <p class="login-footer">Pesan spesial menanti Anda</p>
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <div id="mainContent" class="hidden content-wrapper">
-
         <div class="hero-center">
-
-            <!-- FOTO -->
-            <img src="40f50a64-fb0a-4f42-af6f-7346373a337a.jpg" alt="Foto Spesial" class="profile-photo fade-in">
-
-            <h3 class="fade-in">Happy Birthday,</h3>
-
-            <h1 id="displayName" class="main-name fade-in delay-1">
-                Nama Kamu
-            </h1>
-
-            <!-- PESAN -->
-            <div class="heartfelt-message fade-in delay-2">
+            <h3 class="fade-in">Selamat Ulang Tahun,</h3>
+            <h1 id="displayName" class="cinzel-deco gold-gradient-text fade-in delay-1">Nama</h1>
+             <img src="foto.jpg" alt="Foto Spesial" class="profile-photo fade-in">
+            
+           <div class="heartfelt-message fade-in delay-2">
 
     <p>
         Selamat ulang tahun bro 🎉
@@ -79,61 +63,22 @@
 
 </div>
 
-            <!-- REPLY -->
-            <section class="message-section fade-in delay-3">
-
-                <div class="message-card">
-
-                    <textarea id="replyMessage"
-                        placeholder="Tulis pesanmu di sini..."></textarea>
-
-                    <button onclick="sendToWhatsApp()" class="btn-wa">
-                        Kirim ke WhatsApp
-                    </button>
-
-                </div>
-
-            </section>
-
-        </div>
-
-        <!-- FOOTER -->
-        <footer class="app-footer fade-in delay-3">
-
-            <p class="creator">
-                Made with ❤️ by <span>Firmansyah Maulana</span>
-            </p>
-
-            <p class="version">
-                Version 3.0
-            </p>
-
+       <p class="login-footer">
+    Ada ucapan spesial buat lo 👊
+</p>
+            <p class="creator">Created by <span>©Firmansyah Maulana</span></p>
+            <p class="version">Version 2.0</p>
         </footer>
-
     </div>
 
-    <!-- ALERT -->
     <div id="customAlert" class="modal-overlay hidden">
-
         <div class="modal-box">
-
-            <h3 id="modalTitle">
-                Perhatian
-            </h3>
-
-            <p id="alertMessage">
-                Pesan tidak boleh kosong.
-            </p>
-
-            <button onclick="closeAlert()" class="btn-modal-ok">
-                OKE
-            </button>
-
+            <h3 class="gold-gradient-text cinzel-deco" id="modalTitle">Perhatian</h3>
+            <p id="alertMessage">Pesan tidak boleh kosong.</p>
+            <button onclick="closeAlert()" class="btn-modal-ok">OKE</button>
         </div>
-
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
