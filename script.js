@@ -1,139 +1,65 @@
-const NOMOR_WA_PEMBUAT = "6281383159694";
+const NOMOR_WA_PEMBUAT = "6281383159694"; // GANTI NOMOR ANDA
 
 function unlockExperience() {
-
     const name = document.getElementById('userName').value.trim();
-
     if (name === "") {
-        showModal(
-            "Perhatian",
-            "Mohon masukkan nama terlebih dahulu."
-        );
+        showModal("Perhatian", "Mohon sebutkan nama Anda.");
         return;
     }
-
     document.getElementById('displayName').innerText = name;
-
-    const gate = document.getElementById('gatekeeper');
-
-    gate.style.opacity = "0";
-
+    document.getElementById('gatekeeper').style.opacity = "0";
     setTimeout(() => {
-
-        gate.classList.add('hidden');
-
-        document.getElementById('mainContent')
-            .classList.remove('hidden');
-
+        document.getElementById('gatekeeper').classList.add('hidden');
+        document.getElementById('mainContent').classList.remove('hidden');
         createParticles();
-
     }, 1000);
 }
 
 function showModal(title, message) {
-
     const modal = document.getElementById('customAlert');
-
     document.getElementById('modalTitle').innerText = title;
-
     document.getElementById('alertMessage').innerText = message;
-
     modal.classList.remove('hidden');
-
-    setTimeout(() => {
-        modal.style.opacity = "1";
-    }, 10);
+    setTimeout(() => modal.style.opacity = "1", 10);
 }
 
 function closeAlert() {
-
     const modal = document.getElementById('customAlert');
-
     modal.style.opacity = "0";
-
-    setTimeout(() => {
-        modal.classList.add('hidden');
-    }, 300);
+    setTimeout(() => modal.classList.add('hidden'), 300);
 }
 
 function sendToWhatsApp() {
-
-    const name =
-        document.getElementById('displayName').innerText;
-
-    const msg =
-        document.getElementById('replyMessage')
-        .value
-        .trim();
+    const name = document.getElementById('displayName').innerText;
+    const msg = document.getElementById('replyMessage').value.trim();
 
     if (msg === "") {
-
-        showModal(
-            "Pesan Kosong",
-            "Tulis pesan terlebih dahulu."
-        );
-
+        showModal("Pesan Kosong", "Silakan tuliskan isi hati Anda sebelum mengirim.");
         return;
     }
 
-    const fullMessage =
-`Halo bro 👋
-
-Saya ${name}
-
-Pesan:
-${msg}`;
-
-    const encoded =
-        encodeURIComponent(fullMessage);
-
-    window.open(
-`https://wa.me/${NOMOR_WA_PEMBUAT}?text=${encoded}`,
-'_blank'
-    );
-
+    const fullMessage = `Halo! Saya ${name}.\n\nBalasan saya:\n"${msg}"`;
+    const encoded = encodeURIComponent(fullMessage);
+    
+    // Buka WhatsApp
+    window.open(`https://wa.me/${NOMOR_WA_PEMBUAT}?text=${encoded}`, '_blank');
+    
+    // Tampilkan pesan terkirim
     setTimeout(() => {
-
-        showModal(
-            "Berhasil",
-            "Pesan berhasil dikirim ke WhatsApp 🎉"
-        );
-
-        document.getElementById('replyMessage')
-            .value = "";
-
+        showModal("Berhasil", "Terima kasih! Pesan Anda telah diteruskan melalui WhatsApp.");
+        document.getElementById('replyMessage').value = ""; // Kosongkan form
     }, 1000);
 }
 
 function createParticles() {
-
-    const container =
-        document.getElementById('particles');
-
-    container.innerHTML = "";
-
+    const container = document.getElementById('particles');
     for (let i = 0; i < 40; i++) {
-
         const p = document.createElement('div');
-
         p.className = 'particle';
-
-        const size =
-            Math.random() * 4 + 2;
-
-        p.style.width = size + 'px';
-
-        p.style.height = size + 'px';
-
-        p.style.left =
-            Math.random() * 100 + 'vw';
-
-        p.style.animationDuration =
-            (Math.random() * 5 + 5) + 's';
-
-        p.style.animationDelay =
-            Math.random() * 5 + 's';
-
+        const size = Math.random() * 3 + 1 + 'px';
+        p.style.width = size; p.style.height = size;
+        p.style.left = Math.random() * 100 + 'vw';
+        p.style.animationDuration = (Math.random() * 5 + 7) + 's';
         container.appendChild(p);
     }
 }
